@@ -1,0 +1,9 @@
+LinksafeThemeEngine
+===================
+
+
+When linksafe_theme_engine assets change you must:
+	rake linksafe_theme_engine:assets:sync
+
+
+Copyright (c) 2010 linksafe.name, released under the MIT license
