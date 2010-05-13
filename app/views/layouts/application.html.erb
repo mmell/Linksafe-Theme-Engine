@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>The Game is On::<%= controller_name.titleize %>::<%= controller.action_name.titleize %></title>
+	<link rel="shortcut icon" href="<%= path_to_image('favicon.ico') %>" />
+  <%= stylesheet_link_tag ['scaffold', 'main', 'form_tableless'] %>
+	<%= stylesheet_link_tag 'linksafe' %>
+	<%= @head_additions -%>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-3227879-<%= LinksafeThemeEngine::GoogleAnalyticsIds[ApplicationID] %>']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</head>
+<body<%= @template_onload.nil? ? '' : " onload='#{@template_onload}'" %>>
+
+<div id='top'>Looking for an <a href='http://fullxri.com'>I-broker</a>? | <%= link_to('What is this?', :controller => :main, :action => :about) %></div>
+<div id='content'>
+<div id='linksafe_logo'><%= link_to( image_tag( 'template/linksafe_logo.png', { :alt => '--', :size => '172x35', :border => 0 } ), "/" ) %></div>
+
+<%= render(:file => 'layouts/nav') %>
+
+<div class='cookiecrumb'><%= controller_name.titleize %>::<%= controller.action_name.titleize %></div>
+
+<% unless @page_title.nil? %><h1><%= @page_title %></h1><% end %>
+<%= errors %><%= alerts %><%= notices %>
+<%= yield %>
+</div>
+
+<div id='bottom'><br />
+	&copy; 2010<br />
+	<strong>Polyresolver</strong> is an <a href='http://github.com/zippy/polyresolver'>open source project</a>.<br />
+</div>
+</body>
+</html>
